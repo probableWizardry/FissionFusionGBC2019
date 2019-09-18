@@ -9,12 +9,12 @@ public class Start_Menu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-        Debug.Log("I have Quit The Game");
+        Debug.Log("closed game");
     }
 
     public void StartGame()
     {
         SceneManager.LoadScene(1);
-        Debug.Log("I have gone to the next scene");
+        Debug.Log("loaded next scene");
     }
 }
