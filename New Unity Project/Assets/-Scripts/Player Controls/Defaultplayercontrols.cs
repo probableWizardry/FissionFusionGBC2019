@@ -5,7 +5,7 @@ using UnityEngine;
 public class Defaultplayercontrols: MonoBehaviour
 {
 
-    public float speed = 10f;
+    public float speed = 100f;
     public Rigidbody rb;
 
     // Start is called before the first frame update
