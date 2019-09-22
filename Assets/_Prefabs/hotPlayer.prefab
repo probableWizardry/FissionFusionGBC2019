@@ -102,7 +102,6 @@ GameObject:
   - component: {fileID: 8235627186142780456}
   - component: {fileID: 8235627186142780458}
   - component: {fileID: 8235627186142780459}
-  m_Layer: 0
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14422,6 +14421,7 @@ GameObject:
   - component: {fileID: 8235627187475621957}
   - component: {fileID: 8235627187475621954}
   - component: {fileID: 8235627187475621955}
+  m_Layer: 0
   m_Layer: 0
   m_Name: hotPlayer
   m_TagString: Untagged
