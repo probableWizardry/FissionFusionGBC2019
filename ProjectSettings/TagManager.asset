@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Terrain
+  - Defaultplayer
+  - Hotplayer
+  - Coldplayer
   layers:
   - Default
   - TransparentFX

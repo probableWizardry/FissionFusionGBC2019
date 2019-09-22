@@ -7,9 +7,11 @@ public class Hotplayercontrols : MonoBehaviour
 
     public float speed = 150f;
     public float jumpHeight = 100f;
+    public float fallSpeed = 150f;
     public Rigidbody rb;
     public bool isGrounded;
     private int velocityDelay;
+    public Transform raycastNode;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,6 @@ public class Hotplayercontrols : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.L))
@@ -29,46 +30,31 @@ public class Hotplayercontrols : MonoBehaviour
             rb.AddForce(transform.right * -speed);
         }
 
-        //JUMP CODE DOWN HERE IT'S JANK SO IF YOU KNOW BETTER THEN PLZ FIX. THANK
-        if (velocityDelay >= 1)
-        {
-            if (isGrounded == false)
-            {
-                rb.AddForce(transform.up * jumpHeight);
-            }
-        }
-
         if (isGrounded == true)
         {
             if (Input.GetKeyDown(KeyCode.I))
             {
-                rb.AddForce(transform.up * jumpHeight);
+                rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             }
-
-            velocityDelay = 6;
         }
 
         if (isGrounded == false)
         {
-            velocityDelay--;
-            rb.AddForce(transform.up * -150);
+            if (rb.velocity.y <= -0.1f)
+            {
+                rb.AddForce(transform.up * -fallSpeed);
+            }
         }
-    }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Terrain")
+        RaycastHit hit;
+
+        if (Physics.Raycast(raycastNode.position, raycastNode.up, out hit, 1.01f))
         {
             isGrounded = true;
         }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Terrain")
+        else
         {
             isGrounded = false;
         }
     }
-    //JUMP CODE ENDS HERE SORRY FOR CODE BLOCK
 }
