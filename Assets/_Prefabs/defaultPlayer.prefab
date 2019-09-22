@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6778740858271781756}
   - component: {fileID: 6778740858271781757}
   - component: {fileID: 6778740858271780994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: defaultPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,8 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5028905b751ff48bf3382d0cf493c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 100
+  jumpHeight: 600
   rb: {fileID: 6778740858271781757}
+  isGrounded: 1
 --- !u!1 &7522318716818441431
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6160107525342550413}
   - component: {fileID: 1091462918446926818}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

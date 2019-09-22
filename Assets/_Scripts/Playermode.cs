@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playermode : MonoBehaviour
 {
     //This allows me to test for if the players are fused or not, allowing me to lock off certain code so that we don't get stuck in a fission/fusion loop
-    public bool playerFused = true;
+    private bool playerFused = true;
+    //Allows fusion and fission to be bound to the same button
+    private int coolDown = 0;
 
     //Just public slots for the prefab players
     public GameObject defaultPlayer;
@@ -45,56 +48,69 @@ public class Playermode : MonoBehaviour
 
     void Update()
     {
+        //MOVE THIS INTO A GM SCRIPT BECAUSE IT DOESN'T NEED TO BE HERE ASDFJKLNGKAWSUEBVIHBASK:VOWOBLADIBFLIKA
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+
         if (playerFused == true)
         {
-            //gets the fused player's position every single frame
-            defaultPlayerPosition = cloneDefaultPlayer.transform;
-
-
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (coolDown <= 0)
             {
-                //Destroys fused player
-                Destroy(cloneDefaultPlayer);
-                //instantiates fission players
-                cloneColdPlayer = Instantiate(coldPlayer, defaultPlayerPosition.position, Quaternion.identity) as GameObject;
-                cloneHotPlayer = Instantiate(hotPlayer, defaultPlayerPosition.position, Quaternion.identity) as GameObject;
-                //stops this code from running again
-                playerFused = false;
-            }
+                //gets the fused player's position every single frame
+                defaultPlayerPosition = cloneDefaultPlayer.transform;
 
 
-
-
-
-            
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    //Destroys fused player
+                    Destroy(cloneDefaultPlayer);
+                    //instantiates fission players
+                    cloneColdPlayer = Instantiate(coldPlayer, defaultPlayerPosition.position, Quaternion.identity) as GameObject;
+                    cloneHotPlayer = Instantiate(hotPlayer, defaultPlayerPosition.position, Quaternion.identity) as GameObject;
+                    //stops this code from running again
+                    playerFused = false;
+                    coolDown = 1;
+                }
+            }   
         }
 
         if (playerFused == false)
         {
-            //Gets orange fission's position
-            hotPlayerPosition = cloneHotPlayer.transform;
-            //Gets cold fission's position
-            coldPlayerPosition = cloneColdPlayer.transform;
-            //Gets the exact distance between them, for proximity code later
-            distanceBetweenFission = Vector3.Distance(coldPlayerPosition.position, hotPlayerPosition.position);
-            //Gets the exact position between the 2 fissions. this is where we will instantiate the fused player
-            averageBetweenFission = Vector3.Lerp(coldPlayerPosition.transform.position, hotPlayerPosition.transform.position, 0.5f);
-
-            //This tests that they are close enough to fuse
-            if (distanceBetweenFission <= 1.5f)
+            if (coolDown <= 0)
             {
-                if (Input.GetKeyDown(KeyCode.M))
+                //Gets orange fission's position
+                hotPlayerPosition = cloneHotPlayer.transform;
+                //Gets cold fission's position
+                coldPlayerPosition = cloneColdPlayer.transform;
+                //Gets the exact distance between them, for proximity code later
+                distanceBetweenFission = Vector3.Distance(coldPlayerPosition.position, hotPlayerPosition.position);
+                //Gets the exact position between the 2 fissions. this is where we will instantiate the fused player
+                averageBetweenFission = Vector3.Lerp(coldPlayerPosition.transform.position, hotPlayerPosition.transform.position, 0.5f);
+
+                //This tests that they are close enough to fuse
+                if (distanceBetweenFission <= 1.5f)
                 {
-                    //Destroys fission players
-                    Destroy(cloneColdPlayer);
-                    Destroy(cloneHotPlayer);
-                    //Instantiate fused player
-                    cloneDefaultPlayer = Instantiate(defaultPlayer, averageBetweenFission, Quaternion.identity) as GameObject;
-                    //stops this code from running again
-                    playerFused = true;
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        //Destroys fission players
+                        Destroy(cloneColdPlayer);
+                        Destroy(cloneHotPlayer);
+                        //Instantiate fused player
+                        cloneDefaultPlayer = Instantiate(defaultPlayer, averageBetweenFission, Quaternion.identity) as GameObject;
+                        //stops this code from running again
+                        playerFused = true;
+                    }
                 }
             }
 
+        }
+        //This is a one frame cooldown timer to make sure that the fusion code doesn't run on the same frame as the fission code
+        if (coolDown > 0)
+        {
+            coolDown--;
         }
     }
 }
