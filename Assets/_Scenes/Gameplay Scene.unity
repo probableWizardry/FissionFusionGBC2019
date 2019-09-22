@@ -606,9 +606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultPlayer: {fileID: 6778740858271780995, guid: c7213135511d1a74eb496263b1cc5521,
     type: 3}
-  coldPlayer: {fileID: 3944912631619940977, guid: c8f609ebf7f70c74abf86b00754e1f9d,
+  coldPlayer: {fileID: 1876835315594378336, guid: c8f609ebf7f70c74abf86b00754e1f9d,
     type: 3}
-  hotPlayer: {fileID: 445793744862177798, guid: d3871a662d9c37f44bfeaca0a7390df5,
+  hotPlayer: {fileID: 8235627187475621952, guid: d3871a662d9c37f44bfeaca0a7390df5,
     type: 3}
 --- !u!4 &1354368495
 Transform:

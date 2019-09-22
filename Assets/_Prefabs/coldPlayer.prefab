@@ -123,7 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 80
+  jumpHeight: 300
   rb: {fileID: 1876835315594378342}
+  isGrounded: 0
 --- !u!1 &1876835315885480933
 GameObject:
   m_ObjectHideFlags: 0
