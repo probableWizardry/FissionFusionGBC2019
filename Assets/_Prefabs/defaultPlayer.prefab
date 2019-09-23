@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7397290859195872314}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6778740858271781756}
   - component: {fileID: 6778740858271781757}
   - component: {fileID: 6778740858271780994}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: defaultPlayer
   m_TagString: Defaultplayer
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6160107525342550413}
   - component: {fileID: 1091462918446926818}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
