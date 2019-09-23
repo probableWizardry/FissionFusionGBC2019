@@ -9,9 +9,13 @@ public class DestructibleFloor : MonoBehaviour
     private int timer;
     private Renderer objectRenderer;
     private Color terrainColor;
+    public GameObject particles;
+    private GameObject cloneParticles;
+    private Transform dFloorPosition;
 
     private void Start()
     {
+        dFloorPosition = gameObject.transform;
         terrainColor = new Color(0.245f, 0.181f, 0.101f);
         objectRenderer = gameObject.GetComponent<Renderer>();
         timer = timerMax;
@@ -65,6 +69,7 @@ public class DestructibleFloor : MonoBehaviour
         if (timer== 0)
         {
             Destroy(gameObject);
+            cloneParticles = Instantiate(particles, dFloorPosition.position, Quaternion.identity) as GameObject;
         }
     }
 
