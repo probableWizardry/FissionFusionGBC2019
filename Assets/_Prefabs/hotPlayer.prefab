@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2526054678441068021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8428346424347696965}
+  m_Layer: 0
+  m_Name: transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8428346424347696965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526054678441068021}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8235627187475621958}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &8235627185803654722
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +40,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8235627185803654724}
   - component: {fileID: 8235627185803654725}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +132,7 @@ GameObject:
   - component: {fileID: 8235627186142780456}
   - component: {fileID: 8235627186142780458}
   - component: {fileID: 8235627186142780459}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4861,7 +4891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8235627186529613485}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Its Lit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4897,7 +4927,7 @@ GameObject:
   - component: {fileID: 8235627186717621518}
   - component: {fileID: 8235627186717621504}
   - component: {fileID: 8235627186717621505}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9658,7 +9688,7 @@ GameObject:
   - component: {fileID: 8235627187060575820}
   - component: {fileID: 8235627187060575822}
   - component: {fileID: 8235627187060575823}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14422,9 +14452,9 @@ GameObject:
   - component: {fileID: 8235627187475621957}
   - component: {fileID: 8235627187475621954}
   - component: {fileID: 8235627187475621955}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: hotPlayer
-  m_TagString: Untagged
+  m_TagString: Hotplayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14441,6 +14471,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8235627186529613485}
+  - {fileID: 8428346424347696965}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14531,6 +14562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
-  jumpHeight: 800
+  jumpHeight: 100
   rb: {fileID: 8235627187475621954}
   isGrounded: 0
+  raycastNode: {fileID: 8428346424347696965}

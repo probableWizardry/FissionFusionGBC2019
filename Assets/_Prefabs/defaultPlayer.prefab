@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4733249503885042457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7397290859195872314}
+  m_Layer: 13
+  m_Name: transform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7397290859195872314
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4733249503885042457}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6778740858271781753}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &6778740858271780995
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +44,9 @@ GameObject:
   - component: {fileID: 6778740858271781756}
   - component: {fileID: 6778740858271781757}
   - component: {fileID: 6778740858271780994}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: defaultPlayer
-  m_TagString: Untagged
+  m_TagString: Defaultplayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,6 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6160107525342550413}
+  - {fileID: 7397290859195872314}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,9 +154,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  jumpHeight: 600
+  jumpHeight: 60
+  fallSpeed: 150
   rb: {fileID: 6778740858271781757}
   isGrounded: 1
+  raycastNode: {fileID: 7397290859195872314}
 --- !u!1 &7522318716818441431
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6160107525342550413}
   - component: {fileID: 1091462918446926818}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

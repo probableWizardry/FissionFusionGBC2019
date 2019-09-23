@@ -7,10 +7,11 @@ public class Defaultplayercontrols: MonoBehaviour
 
     public float speed = 100f;
     public float jumpHeight = 100f;
+    public float fallSpeed = 150f;
     public Rigidbody rb;
     public bool isGrounded;
     private int velocityDelay;
-    
+    public Transform raycastNode;
 
     // Start is called before the first frame update
     void Start()
@@ -31,47 +32,31 @@ public class Defaultplayercontrols: MonoBehaviour
         }
 
 
-        if(velocityDelay >= 1)
-        {
-            if(isGrounded == false)
-            {
-                rb.AddForce(transform.up * jumpHeight);
-            }
-        }
-
         if (isGrounded == true)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
-                rb.AddForce(transform.up * jumpHeight);
+                rb.AddForce(transform.up * jumpHeight, ForceMode.Impulse);
             }
-
-            velocityDelay = 6;
         }
 
         if (isGrounded == false)
         {
-            velocityDelay--;
-            rb.AddForce(transform.up * -150);
+            if (rb.velocity.y <= -0.1f)
+            {
+                rb.AddForce(transform.up * -fallSpeed);
+            }
         }
-    }
 
+        RaycastHit hit;
 
-
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Terrain")
+        if (Physics.Raycast(raycastNode.position, raycastNode.up, out hit, 1.01f))
         {
             isGrounded = true;
         }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.tag == "Terrain")
+        else
         {
             isGrounded = false;
         }
     }
-}
+ }
