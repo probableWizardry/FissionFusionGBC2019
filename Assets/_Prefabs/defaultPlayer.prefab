@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 100
-  jumpHeight: 60
+  jumpHeight: 100
   fallSpeed: 150
   rb: {fileID: 6778740858271781757}
   isGrounded: 1
