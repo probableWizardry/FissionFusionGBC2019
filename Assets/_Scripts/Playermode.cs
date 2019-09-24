@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Playermode : MonoBehaviour
 {
+    public static Playermode instance;
+
     //This allows me to test for if the players are fused or not, allowing me to lock off certain code so that we don't get stuck in a fission/fusion loop
     private bool playerFused = true;
     //Allows fusion and fission to be bound to the same button
@@ -31,7 +33,7 @@ public class Playermode : MonoBehaviour
 
     void Start()
     {
-
+        instance = this;
 
 
 
