@@ -7,7 +7,7 @@ public class Gamewin : MonoBehaviour
 {
     private float winDelay = 1;
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Defaultplayer")
         {
@@ -21,5 +21,4 @@ public class Gamewin : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
 }

@@ -49,7 +49,7 @@ public class Coldplayercontrols : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(raycastNode.position, raycastNode.up, out hit, 1.01f))
+        if (Physics.Raycast(raycastNode.position, raycastNode.up, out hit, .02f))
         {
             isGrounded = true;
         }
